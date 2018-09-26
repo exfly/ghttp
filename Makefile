@@ -15,7 +15,6 @@ all: $(PROGS)
 	-mkdir log
 
 $(PROGS): $(CSAPP_SRC)/csapp.o $(LOG_SRC)/log.o $(CORE_SRC)/core.o
-	-rm ghttp
 	gcc $(CFLAGS) -I$(CSAPP_INC) -I$(LOG_INC) $?  $(LDLIBS) -o $@
 
 $(CORE_SRC)/core.o: $(CORE_SRC)/core.c $(LOG_INC)/log.h $(CSAPP_INC)/csapp.h
