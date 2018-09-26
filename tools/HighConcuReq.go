@@ -12,13 +12,13 @@ func main() {
 	mut := sync.Mutex{}
 
 	statistics := map[string]int{}
-	timesn := 1000
+	timesn := 300
 
 	wg.Add(timesn)
 	for i := 0; i < timesn; i++ {
 		go func() {
 			_, err := req("http://localhost:8080/")
-			// res, err := req("http://www.baidu.com/")
+			// _, err := req("https://www.ibm.com")
 			if err != nil {
 				mut.Lock()
 				v, _ := statistics["err"]

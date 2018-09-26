@@ -25,7 +25,7 @@ static ssize_t rio_writen(int fd, void *usrbuf, size_t n);
 
 /*全局log文件标识*/
 static int logfd;
-static LOGLEVEL LOGLEV = INFO;
+static LOGLEVEL LOGLEV = ALL;
 /*
  * loginit： 初始化打开文件，
  */

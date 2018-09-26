@@ -15,6 +15,7 @@ void serve_dynamic(int fd, char *filename, char *cgiargs);
 void clienterror(int fd, char *cause, char *errnum,
 		 char *shortmsg, char *longmsg);
 
+void Doit(int fd);
 int main(int argc, char **argv)
 {
     int listenfd, connfd;
@@ -40,12 +41,18 @@ int main(int argc, char **argv)
 	    Getnameinfo((SA *) &clientaddr, clientlen, hostname, MAXLINE,
 	                    port, MAXLINE, 0);
 	    printf("Accepted connection from (%s, %s)\n", hostname, port);
-		doit(connfd);                                             //line:netp:tiny:doit
-		Close(connfd);                                            //line:netp:tiny:close
-		loginfo("close");
+		pthread_t thread;
+        pthread_create(&thread, NULL, Doit, (void *)(connfd));
 	}
 }
+
 /* $end tinymain */
+void Doit(int fd){
+    doit(fd);                                             //line:netp:tiny:doit
+    Close(fd);                                            //line:netp:tiny:close
+    loginfo("close");
+    pthread_exit( (void *)0 );
+}
 
 void doit(int fd)
 {
