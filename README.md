@@ -2,8 +2,7 @@
 
 ## Description
 
-Reimplement httpserver like nginx.
-
+Reimplement httpserver like nginx based on csapp lib.
 ## Usage
 
 ```sh
