@@ -25,6 +25,7 @@ $(LOG_SRC)/log.o: $(LOG_INC)/log.h
 
 
 .PHONY : clean
+
 clean :
 	-rm -rf *.dSYM/
 	(cd $(CSAPP_SRC) && make clean)
@@ -33,3 +34,6 @@ clean :
 	-rm $(PROGS)
 	-rm -rf ./log/
 	-rm *.out
+
+test:
+	echo "on null test!"
