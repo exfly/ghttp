@@ -1,4 +1,4 @@
-# GHttp server
+# GHttp server ![ci](https://travis-ci.org/ExFly/ghttp.svg?branch=master)
 
 ## Description
 
